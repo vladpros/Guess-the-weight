@@ -8,10 +8,11 @@ namespace Modul3
 {
     class CheaterPlayer : Player
     {
-        public static int ChooseNumber(List<int> list)
+        public int ChooseNumber(List<int> list)
         {
 
             return GetRandNumberOutList(list);
         }
+
     }
 }

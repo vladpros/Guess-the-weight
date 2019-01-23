@@ -6,26 +6,27 @@ using System.Threading.Tasks;
 
 namespace Modul3 
 {
-    class Player 
+    public class Player 
     {
-      public static int ChooseNumber()
+        Random random = new Random();
+
+        public int ChooseNumber()
         {
            return GetRandNumber();
         }
 
-        protected static int GetRandNumber()
+        protected int GetRandNumber()
         {
 
-            Random random = new Random();
-
-            return (int)random.Next(1, 101);
+            int x = random.Next(1, 101);
+            return x;
         }
 
-        protected static int GetRandNumberOutList(List<int> choosenumbers)
+        protected int GetRandNumberOutList(List<int> choosenumbers)
         {
             int x = GetRandNumber();
 
-            while (choosenumbers[x - 1] == 1)
+            while (choosenumbers.Contains(x))
             {
                 x = GetRandNumber();
                 return x;
@@ -33,15 +34,5 @@ namespace Modul3
             return x;
         }
 
-        protected static int GetNumberOutList(List<int> choosenumbers, int x)
-        {
-
-            while (choosenumbers[x - 1] == 1)
-            {
-                x ++;
-                return x;
-            }
-            return x;
-        }
     }
 }

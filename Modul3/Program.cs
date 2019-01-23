@@ -10,6 +10,10 @@ namespace Modul3
     {
         static void Main(string[] args)
         {
+            var game = new Game();
+            game.StartGame();
+
+            Console.ReadLine();
         }
     }
 }

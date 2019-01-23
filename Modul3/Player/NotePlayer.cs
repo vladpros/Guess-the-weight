@@ -8,12 +8,13 @@ namespace Modul3
 {
     class NotePlayer : Player
     {
-        private static List<int> choosenumbers = new List<int>(100);
+        private List<int> choosenumbers = new List<int>(100);
 
-        public static new int ChooseNumber()
+
+        public new int ChooseNumber()
         {
             int x = GetRandNumberOutList(choosenumbers);
-            choosenumbers[x - 1] = 1;
+            choosenumbers.Add(x);
             return x;
         }
 
