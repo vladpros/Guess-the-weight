@@ -41,8 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Player\CheaterPlayer.cs" />
+    <Compile Include="Player\NotePlayer.cs" />
+    <Compile Include="Player\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Player\UberCheaterPlayer.cs" />
+    <Compile Include="Player\UberPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
