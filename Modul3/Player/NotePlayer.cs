@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Modul3
 {
-    class NotePlayer : Player
+    class NotePlayer : Player, IPlayer
     {
         private List<int> choosenumbers = new List<int>(100);
 
 
-        public new int ChooseNumber()
+        public new int ChooseNumber(List<int> list)
         {
             int x = GetRandNumberOutList(choosenumbers);
             choosenumbers.Add(x);

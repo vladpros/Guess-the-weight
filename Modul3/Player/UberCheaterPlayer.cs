@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modul3
 {
-    class UberCheaterPlayer : CheaterPlayer
+    class UberCheaterPlayer : CheaterPlayer, IPlayer
     {
         static int number = 0;
         public new int ChooseNumber(List<int> list)

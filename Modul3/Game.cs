@@ -10,11 +10,13 @@ namespace Modul3
     {
         public void StartGame()
         {
-            Player first = new Player();
-            var second = new NotePlayer();
-            var third = new UberPlayer();
-            var four = new CheaterPlayer();
-            var fifth = new UberCheaterPlayer();
+            List<int> list = new List<int>();
+            List<IPlayer> players = new List<IPlayer>();
+
+            players.Add(new Player());
+            players.Add(new CheaterPlayer());
+
+            Console.WriteLine(players[1].ChooseNumber(list)); 
 
         }
 

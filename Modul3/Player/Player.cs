@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Modul3 
 {
-    public class Player 
+    public class Player : IPlayer
     {
         Random random = new Random();
 
-        public int ChooseNumber()
+        public int ChooseNumber(List<int> list)
         {
            return GetRandNumber();
         }

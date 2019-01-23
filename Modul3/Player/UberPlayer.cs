@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Modul3
 {
-    class UberPlayer : Player
+    class UberPlayer : Player, IPlayer
     {
         static int number = 1;
 
-        public new int ChooseNumber()
+        public int ChooseNumber(List<int> list)
         {
 
             return number++;

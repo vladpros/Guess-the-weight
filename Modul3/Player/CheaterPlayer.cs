@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Modul3
 {
-    class CheaterPlayer : Player
+    class CheaterPlayer : Player, IPlayer
     {
-        public int ChooseNumber(List<int> list)
+        public new int ChooseNumber(List<int> list)
         {
 
             return GetRandNumberOutList(list);
