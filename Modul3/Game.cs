@@ -9,7 +9,7 @@ namespace Modul3
 {
     class Game
     {
-        int Win = 87;
+        int Win = Player.GetRandNumber();
         int K;
         int Bliz = 1000;
         List<int> Used = new List<int>();
