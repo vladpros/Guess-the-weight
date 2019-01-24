@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Modul3
 {
-    interface IPlayer
+    static class Const
     {
-        int ChooseNumber(List<int> list);
+        public const int StartVal = 40;
+        public const int EndVal = 140;
 
     }
 }

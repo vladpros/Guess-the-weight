@@ -8,22 +8,23 @@ namespace Modul3
 {
     class UberCheaterPlayer : CheaterPlayer, IPlayer
     {
-        static int number = 0;
+        int number = Const.StartVal-1;
+
         public new int ChooseNumber(List<int> list)
         {
             number++;
-            return GetNumberOutList(list, number);
+
+            return GetNumberOutList(list);
         }
 
-        protected int GetNumberOutList(List<int> choosenumbers, int x)
+        protected int GetNumberOutList(List<int> choosenumbers)
         {
-
-            while (choosenumbers.Contains(x))
+            while (choosenumbers.Contains(number))
             {
-                x++;
-                return x;
+                number++;
             }
-            return x;
+
+            return number;
         }
     }
 }

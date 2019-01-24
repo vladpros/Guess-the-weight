@@ -12,12 +12,13 @@ namespace Modul3
         {
             int k = 0;
             Console.WriteLine("Enter amount of player: ");
-            while (!Int32.TryParse(Console.ReadLine(), out k))
+            while (!Int32.TryParse(Console.ReadLine(), out k) || k < 2 || k > 8)
             {
                 Console.WriteLine("Wrong data!!!");
                 Console.WriteLine("Please try another: ");
             }
             Console.Clear();
+
             return k;
         }
 
@@ -38,41 +39,46 @@ namespace Modul3
             int x = 0;
             Console.Clear();
             Console.WriteLine("Please choose type of player: \n1.Player\n2.Note Player\n3.Uber Player\n4.Cheater\n5.Uber Cheater");
-            while (!Int32.TryParse(Console.ReadLine(), out x) || x<1 || x>5)
+
+            while (!Int32.TryParse(Console.ReadLine(), out x) || x < 1 || x > 5)
             {
                 Console.WriteLine("Wrong data!!!");
                 Console.WriteLine("Please try another: ");
             }
-            t = (TypePlayer)x;
+
+            t = (TypePlayer)(x-1);
 
             return t;
         }
 
-        public void Win(Data win)
+        public void WinMassege(Data win)
         {
             Console.Clear();
             Console.WriteLine($"Congruutilations {win.name} you win!!!!!");
             Console.WriteLine($"Please press any button...");
             Console.ReadLine();
             Environment.Exit(0);
+
         }
 
-        public void WinNumber(int k)
+        public void OutWinNumber(int k)
         {
             Console.WriteLine($"Win number: {k}");
             Console.WriteLine($"Please press any button...");
             Console.ReadLine();
-            Console.WriteLine($"Somthing wait please.");
+            Console.WriteLine($"Somthing wait please...");
         }
 
         public void Players(List<Data> list)
         {
             Console.Clear();
             Console.WriteLine($"Player list:\n");
+
             for (int i = 0; i < list.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {list[i].name} hi`s {list[i].t};");
             }
+
             Console.WriteLine($"Please press any button...");
             Console.ReadLine();
         }

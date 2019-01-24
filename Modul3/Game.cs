@@ -9,12 +9,12 @@ namespace Modul3
 {
     class Game
     {
-        int Win = Player.GetRandNumber();
-        int K;
-        int Bliz = 1000;
+        int WinNumber = Player.GetRandNumber();
+        int PlayerCount;
+        int BestRazn = 1000;
         List<int> Used = new List<int>();
         string BestPlayers;
-        InOutConsole _inOut = new InOutConsole();
+        InOutConsole inOut = new InOutConsole();
         object _locker = new object();
 
         public void StartGame()
@@ -23,24 +23,24 @@ namespace Modul3
             List<Data> players = CreatPlayer();
             var pts1 = new ParameterizedThreadStart(Threads);
 
-            _inOut.Players(players);
+            inOut.Players(players);
 
-            _inOut.WinNumber(Win);
+            inOut.OutWinNumber(WinNumber);
 
 
             for(int i = 0; i < 100; i++)
             {
-                for(int j = 0; j < K; j++)
+                for(int j = 0; j < PlayerCount; j++)
                 {
                     Thread thread = new Thread(pts1);
                     thread.Start(players[j]);
                 }
             }
 
-            for (int i = 0; i < K; i++)
+            for (int i = 0; i < PlayerCount; i++)
             {
                 if(BestPlayers == players[i].name)
-                    _inOut.Win(players[i]);
+                    inOut.WinMassege(players[i]);
             }
 
         }
@@ -49,12 +49,12 @@ namespace Modul3
         {
             List<Data> list = new List<Data>();
 
-            K = _inOut.Amount();
+            PlayerCount = inOut.Amount();
 
-            for (int i = 0; i < K; i++)
+            for (int i = 0; i < PlayerCount; i++)
             {
-                string name = _inOut.String();
-                TypePlayer t = _inOut.TypePlayers();
+                string name = inOut.String();
+                TypePlayer t = inOut.TypePlayers();
                 list.Add(new Data(name, t));
             }
 
@@ -70,17 +70,18 @@ namespace Modul3
                 int number = input.player.ChooseNumber(Used);
                 Used.Add(number);
 
-                if (number == Win)
+                if (number == WinNumber)
                 {
-                    _inOut.Win(input);
+                    inOut.WinMassege(input);
                 }
-                if ((Win - number) < (Win - Bliz))
+                if ((WinNumber - number) < (WinNumber - BestRazn))
                 {
-                    Bliz = number;
+                    BestRazn = number;
                     BestPlayers = input.name;
                 }
             }
             Thread.Sleep(300);
+            
         }
     }
 }

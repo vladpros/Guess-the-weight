@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modul3
 {
+
     enum TypePlayer
     {
         Player,
@@ -26,7 +27,7 @@ namespace Modul3
         public Data(string Name, TypePlayer T)
         {
             this.name = Name;
-            this.t = T-1;
+            this.t = T;
             switch (t)
             {
                 case TypePlayer.Player:

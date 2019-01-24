@@ -8,13 +8,14 @@ namespace Modul3
 {
     class NotePlayer : Player, IPlayer
     {
-        private List<int> choosenumbers = new List<int>(100);
+        private List<int> choosenumbers = new List<int>(Const.EndVal-Const.StartVal);
 
 
         public new int ChooseNumber(List<int> list)
         {
             int x = GetRandNumberOutList(choosenumbers);
             choosenumbers.Add(x);
+
             return x;
         }
 

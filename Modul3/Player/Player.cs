@@ -13,13 +13,14 @@ namespace Modul3
 
         public int ChooseNumber(List<int> list)
         {
+
            return GetRandNumber();
         }
 
         public static int GetRandNumber()
         {
 
-            int x = random.Next(1, 101);
+            int x = random.Next(Const.StartVal, Const.EndVal+1);
             return x;
         }
 
@@ -30,8 +31,8 @@ namespace Modul3
             while (choosenumbers.Contains(x))
             {
                 x = GetRandNumber();
-                return x;
             }
+
             return x;
         }
 

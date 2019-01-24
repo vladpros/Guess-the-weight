@@ -8,7 +8,7 @@ namespace Modul3
 {
     class UberPlayer : Player, IPlayer
     {
-        static int number = 1;
+        static int number = Const.StartVal;
 
         public new int ChooseNumber(List<int> list)
         {
