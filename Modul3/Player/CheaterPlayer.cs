@@ -7,15 +7,13 @@ using System.Threading.Tasks;
 namespace Modul3
 {
 
-    class Program
+    class CheaterPlayer : Player, IPlayer
     {
-        static void Main(string[] args)
+        public new int ChooseNumber(List<int> list)
         {
-            var game = new Game();
-            game.StartGame();
 
-
-            Console.ReadLine();
+            return GetRandNumberOutList(list);
         }
+
     }
 }
