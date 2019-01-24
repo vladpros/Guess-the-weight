@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Modul3
@@ -10,15 +11,17 @@ namespace Modul3
     {
         int Win = 87;
         int K;
+        int Bliz = 1000;
+        List<int> Used = new List<int>();
+        string BestPlayers;
         InOutConsole _inOut = new InOutConsole();
+        object _locker = new object();
 
         public void StartGame()
         {
 
-            List<int> list = new List<int>();
             List<Data> players = CreatPlayer();
-            int bliz = 1000;
-            int bestPlayers = 0;
+            var pts1 = new ParameterizedThreadStart(Threads);
 
             _inOut.Players(players);
 
@@ -29,23 +32,16 @@ namespace Modul3
             {
                 for(int j = 0; j < K; j++)
                 {
-                    int number = players[j].player.ChooseNumber(list);
-                    list.Add(number);
-
-                    if(number == Win)
-                    {
-                        _inOut.Win(players[j]);
-                        return;
-                    }
-                    if ((Win - number) < (Win - bliz))
-                    {
-                        bliz = number;
-                        bestPlayers = j;
-                    }
+                    Thread thread = new Thread(pts1);
+                    thread.Start(players[j]);
                 }
             }
 
-            _inOut.Win(players[bestPlayers]);
+            for (int i = 0; i < K; i++)
+            {
+                if(BestPlayers == players[i].name)
+                    _inOut.Win(players[i]);
+            }
 
         }
 
@@ -63,6 +59,28 @@ namespace Modul3
             }
 
             return list;
+        }
+
+        public void Threads (object input1)
+        {
+            lock (_locker)
+            {
+                Data input = (Data)input1;
+
+                int number = input.player.ChooseNumber(Used);
+                Used.Add(number);
+
+                if (number == Win)
+                {
+                    _inOut.Win(input);
+                }
+                if ((Win - number) < (Win - Bliz))
+                {
+                    Bliz = number;
+                    BestPlayers = input.name;
+                }
+            }
+            Thread.Sleep(300);
         }
     }
 }

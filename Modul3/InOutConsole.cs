@@ -52,11 +52,17 @@ namespace Modul3
         {
             Console.Clear();
             Console.WriteLine($"Congruutilations {win.name} you win!!!!!");
+            Console.WriteLine($"Please press any button...");
+            Console.ReadLine();
+            Environment.Exit(0);
         }
 
         public void WinNumber(int k)
         {
             Console.WriteLine($"Win number: {k}");
+            Console.WriteLine($"Please press any button...");
+            Console.ReadLine();
+            Console.WriteLine($"Somthing wait please.");
         }
 
         public void Players(List<Data> list)
@@ -67,6 +73,7 @@ namespace Modul3
             {
                 Console.WriteLine($"{i + 1}. {list[i].name} hi`s {list[i].t};");
             }
+            Console.WriteLine($"Please press any button...");
             Console.ReadLine();
         }
 
