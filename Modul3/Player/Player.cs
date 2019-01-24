@@ -9,14 +9,14 @@ namespace Modul3
 
     public class Player : IPlayer
     {
-        Random random = new Random(1);
+        static Random random = new Random();
 
         public int ChooseNumber(List<int> list)
         {
            return GetRandNumber();
         }
 
-        protected int GetRandNumber()
+        public static int GetRandNumber()
         {
 
             int x = random.Next(1, 101);
