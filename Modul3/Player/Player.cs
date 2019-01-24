@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Modul3 
 {
+
     public class Player : IPlayer
     {
-        Random random = new Random();
+        Random random = new Random(1);
 
         public int ChooseNumber(List<int> list)
         {

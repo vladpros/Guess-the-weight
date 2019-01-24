@@ -10,7 +10,7 @@ namespace Modul3
     {
         static int number = 1;
 
-        public int ChooseNumber(List<int> list)
+        public new int ChooseNumber(List<int> list)
         {
 
             return number++;

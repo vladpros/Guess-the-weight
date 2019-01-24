@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game.cs" />
+    <Compile Include="InOutConsole.cs" />
+    <Compile Include="Data.cs" />
     <Compile Include="Player\IPlayer.cs" />
     <Compile Include="Player\CheaterPlayer.cs" />
     <Compile Include="Player\NotePlayer.cs" />
