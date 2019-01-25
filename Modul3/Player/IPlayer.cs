@@ -8,7 +8,11 @@ namespace Modul3
 {
     interface IPlayer
     {
+
         int ChooseNumber(List<int> list);
 
+        List<int> UsedNumberAdd(int q);
+
+        List<int> UsedNumberAll();
     }
 }

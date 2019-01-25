@@ -51,10 +51,9 @@ namespace Modul3
             return t;
         }
 
-        public void WinMassege(Data win)
+        public void WinMassege(string win)
         {
-            Console.Clear();
-            Console.WriteLine($"Congruutilations {win.name} you win!!!!!");
+            Console.WriteLine($"Congruutilations {win} you win!!!!!");
             Console.WriteLine($"Please press any button...");
             Console.ReadLine();
             Environment.Exit(0);
@@ -83,5 +82,26 @@ namespace Modul3
             Console.ReadLine();
         }
 
+        public void PlayerNumber(List<Data> list)
+        {
+
+            Console.WriteLine("Used number:");
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {list[i].name} choos:");
+                ShowList(list[i].player.UsedNumberAll());
+                Console.Write(";\n");
+            }
+            Console.WriteLine();
+        }
+
+        public void ShowList(List<int> list)
+        {
+            foreach(var number in list)
+            {
+                Console.Write($" {number}");
+            }
+        }
     }
 }

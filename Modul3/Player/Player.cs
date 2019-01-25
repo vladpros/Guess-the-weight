@@ -9,7 +9,9 @@ namespace Modul3
 
     public class Player : IPlayer
     {
+
         static Random random = new Random();
+        public List<int> usenumber = new List<int>();
 
         public int ChooseNumber(List<int> list)
         {
@@ -36,5 +38,17 @@ namespace Modul3
             return x;
         }
 
+        public List<int> UsedNumberAdd (int q)
+        {
+            usenumber.Add(q);
+
+            return usenumber;
+        }
+
+        public List<int> UsedNumberAll()
+        {
+
+            return usenumber;
+        }
     }
 }

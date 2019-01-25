@@ -27,20 +27,26 @@ namespace Modul3
 
             inOut.OutWinNumber(WinNumber);
 
-
             for(int i = 0; i < 100; i++)
             {
                 for(int j = 0; j < PlayerCount; j++)
                 {
                     Thread thread = new Thread(pts1);
                     thread.Start(players[j]);
+                    if(BestRazn == WinNumber)
+                        break;
                 }
+                if (BestRazn == WinNumber)
+                    break;
             }
+            Thread.Sleep(1000);
+
+            inOut.PlayerNumber(players);
 
             for (int i = 0; i < PlayerCount; i++)
             {
                 if(BestPlayers == players[i].name)
-                    inOut.WinMassege(players[i]);
+                    inOut.WinMassege(BestPlayers);
             }
 
         }
@@ -69,12 +75,12 @@ namespace Modul3
 
                 int number = input.player.ChooseNumber(Used);
                 Used.Add(number);
-
-                if (number == WinNumber)
-                {
-                    inOut.WinMassege(input);
-                }
-                if ((WinNumber - number) < (WinNumber - BestRazn))
+                input.player.UsedNumberAdd(number);
+                //if (number == WinNumber)
+                //{
+                //    inOut.WinMassege(input);
+                //}
+                if (Math.Abs(WinNumber - number) < Math.Abs(WinNumber - BestRazn))
                 {
                     BestRazn = number;
                     BestPlayers = input.name;
