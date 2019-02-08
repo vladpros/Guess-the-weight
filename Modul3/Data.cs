@@ -9,11 +9,11 @@ namespace Modul3
 
     enum TypePlayer
     {
-        Player,
-        NotePlayer,
-        UberPlayer,
-        CheaterPlayer,
-        UberCheaterPlayer
+        Player = 0,
+        NotePlayer = 1,
+        UberPlayer = 2,
+        CheaterPlayer = 3,
+        UberCheaterPlayer = 4
     }
 
     class Data

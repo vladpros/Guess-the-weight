@@ -10,6 +10,7 @@ namespace Modul3
     {
         public const int StartVal = 40;
         public const int EndVal = 140;
-
+        public const int MinPlayers = 2;
+        public const int MaxPlayers = 8;
     }
 }

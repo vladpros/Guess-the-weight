@@ -12,7 +12,7 @@ namespace Modul3
         {
             int k = 0;
             Console.WriteLine("Enter amount of player: ");
-            while (!Int32.TryParse(Console.ReadLine(), out k) || k < 2 || k > 8)
+            while (!Int32.TryParse(Console.ReadLine(), out k) || IfCorrectInputDataNumber(k))
             {
                 Console.WriteLine("Wrong data!!!");
                 Console.WriteLine("Please try another: ");
@@ -40,7 +40,7 @@ namespace Modul3
             Console.Clear();
             Console.WriteLine("Please choose type of player: \n1.Player\n2.Note Player\n3.Uber Player\n4.Cheater\n5.Uber Cheater");
 
-            while (!Int32.TryParse(Console.ReadLine(), out x) || x < 1 || x > 5)
+            while (!Int32.TryParse(Console.ReadLine(), out x) || IfCorrectInputDataType(x))
             {
                 Console.WriteLine("Wrong data!!!");
                 Console.WriteLine("Please try another: ");
@@ -102,6 +102,18 @@ namespace Modul3
             {
                 Console.Write($" {number}");
             }
+        }
+
+        private bool IfCorrectInputDataType(int x)
+        {
+            bool k = x < 1 || x > 5;
+            return true;
+        }
+
+        private bool IfCorrectInputDataNumber(int x)
+        {
+            bool k = x < Const.MinPlayers || x > Const.MaxPlayers;
+            return true;
         }
     }
 }
